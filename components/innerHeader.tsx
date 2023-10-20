@@ -1,12 +1,10 @@
 import { Box, Button, H1, HR, Text } from '@bigcommerce/big-design';
 import { ArrowBackIcon } from '@bigcommerce/big-design-icons';
 import { useRouter } from 'next/router';
-import { useCollectionList } from '../lib/hooks';
 import { TabIds, TabRoutes } from './header';
 
 const InnerHeader = () => {
     const router = useRouter();
-    const { cid } = router.query;
 
     const handleBackClick = () => router.push(TabRoutes[TabIds.CONFIG]);
 

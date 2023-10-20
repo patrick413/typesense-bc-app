@@ -35,8 +35,9 @@ const collectionFetcher = async (url,apiKey, collection, id = 'export', method =
   const responseText = await response.text();
   const lines = responseText.split('\n').filter(Boolean); // Split by newline and remove empty lines
 
-  const data = lines.map((line) => JSON.parse(line));
-  return data;
+    const data = lines.map((line) => JSON.parse(line));
+
+    return data;
 };
 
 // Reusable SWR hooks
@@ -46,6 +47,7 @@ export function useChannel() {
     const params = new URLSearchParams({ context }).toString();
     // Request is deduped and cached; Can be shared across components
     const { data, error, mutate: mutateList } = useSWR(context ? ['/api/channels', params] : null, fetcher);
+
     return {
         summary: data,
         isLoading: !data && !error,
@@ -59,6 +61,7 @@ export function useCredentials() {
     const params = new URLSearchParams({ context }).toString();
     // Request is deduped and cached; Can be shared across components
     const { data, error, mutate: mutateList } = useSWR(context ? ['/api/credentials', params] : null, fetcher);
+
     return {
         summary: data,
         isLoading: !data && !error,
@@ -69,7 +72,8 @@ export function useCredentials() {
 
 export function useCollectionList(url:string, apiKey:string, activeCollection,id) {
     // Use SWR to fetch data
-    const { data, error, mutate: mutateList} = useSWR([url, apiKey, activeCollection,id], collectionFetcher);
+    const { data, error, mutate: mutateList } = useSWR([url, apiKey, activeCollection, id], collectionFetcher);
+    
     return {
         list: data,
         isLoading: !data && !error,

@@ -1,6 +1,5 @@
-import { Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Textarea, MultiSelect, createAlertsManager, AlertProps, AlertsManager  } from '@bigcommerce/big-design';
-import { DeleteIcon } from '@bigcommerce/big-design-icons';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Textarea, MultiSelect, createAlertsManager, AlertProps, AlertsManager } from '@bigcommerce/big-design';
 import { FormData } from '../types';
 
 interface FormProps {

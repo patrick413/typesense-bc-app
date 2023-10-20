@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { bigcommerceClient, getSession } from '../../../lib/auth';
+import { getSession } from '../../../lib/auth';
 
 export default async function channels(req: NextApiRequest, res: NextApiResponse) {
     const {

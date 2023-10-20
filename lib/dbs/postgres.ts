@@ -16,7 +16,6 @@ if (process.env.POSTGRES_URL) {
     POSTGRES_URL = POSTGRES_URL.href
 }
 
-const LOGGING_ENABLED = process.env.ENABLE_LOGGING === 'true';
 const POSTGRES_CONFIG: PoolConfig = POSTGRES_URL ? {
     connectionString: POSTGRES_URL,
     // Vercel Postgres has max use of 1 per connection.

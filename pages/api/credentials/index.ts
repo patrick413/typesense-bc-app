@@ -3,7 +3,7 @@ import { getSession } from '../../../lib/auth';
 
 export default async function channel(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const { accessToken, storeHash } = await getSession(req);
+        const { storeHash } = await getSession(req);
         const response = await fetch(`https://tranzetta-v2-backend-dev.four13.co/api/tranzetta/${storeHash}/getTypesenseAccount`, {
             method: 'POST',
             headers: {

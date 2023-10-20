@@ -1,12 +1,12 @@
+import React, { useState } from 'react';
 import { Modal, Tooltip, Button } from '@bigcommerce/big-design';
 import { AddIcon } from '@bigcommerce/big-design-icons';
-import { useState } from 'react';
 
 function ModalAdd({ collection, url, apiKey }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const submitHandler = async () => {
+const submitHandler = async () => {
     try {
       if (!selectedFile) {
         console.error('No file selected');

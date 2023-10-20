@@ -57,25 +57,27 @@ export function setSession(session: SessionProps) {
 }
 
 export async function getSession({ query: { context = '' } }: NextApiRequest) {
-    if (typeof context !== 'string') return;
-    const { context: storeHash, user } = decodePayload(context);
-    const hasUser = await db.hasStoreUser(storeHash, user?.id);
+  if (typeof context !== 'string') return;
 
-    // Before retrieving session/ hitting APIs, check user
-    if (!hasUser) {
-        throw new Error('User is not available. Please login or ensure you have access permissions.');
-    }
+  const { context: storeHash, user } = decodePayload(context);
+  const hasUser = await db.hasStoreUser(storeHash, user?.id);
 
-    const accessToken = await db.getStoreToken(storeHash);
-    return { accessToken, storeHash, user };
+  // Before retrieving session/hitting APIs, check user
+  if (!hasUser) {
+    throw new Error('User is not available. Please login or ensure you have access permissions.');
+  }
+
+  const accessToken = await db.getStoreToken(storeHash);
+  return { accessToken, storeHash, user };
 }
 
-// JWT functions to sign/ verify 'context' query param from /api/auth||load
+// JWT functions to sign/verify 'context' query param from /api/auth||load
 export function encodePayload({ user, owner, ...session }: SessionProps) {
-    const contextString = session?.context ?? session?.sub;
-    const context = contextString.split('/')[1] || '';
-    return jwt.sign({ context, user, owner }, JWT_KEY, { expiresIn: '24h' });
+  const contextString = session?.context ?? session?.sub;
+  const context = contextString.split('/')[1] || '';
+  return jwt.sign({ context, user, owner }, JWT_KEY, { expiresIn: '24h' });
 }
+
 // Verifies JWT for getSession (product APIs)
 export function decodePayload(encodedContext: string) {
     return jwt.verify(encodedContext, JWT_KEY);

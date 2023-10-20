@@ -1,14 +1,15 @@
-import { Box, Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
-import styled from "styled-components";
-import { useChannel } from "@lib/hooks";
+import { useSession } from "context/session";
 import SideNav from "@components/sideNav";
-import { useState, useEffect } from "react";
+import { useChannel } from "@lib/hooks";
+import { useState, useEffect, useRef } from "react";
 import Loading from "@components/loading";
 import ErrorMessage from "@components/error";
 import { useConfig } from "context/config";
-import { useSession } from "context/session";
+import { Box, Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
+import styled from "styled-components";
 import HitPerPage from "@components/tabPages/hitPerPage";
 import SearchAttributes from "@components/tabPages/searchAttributes";
+
 
 const alertsManager = createAlertsManager()
 const Index = () => {
@@ -21,19 +22,18 @@ const Index = () => {
 		{ name: "search", isActive: false, caption:'Searchable Attributes' },
 	])
 
-	let value
-	console.log(searchConfig)
+	const valueRef = useRef();
 	useEffect(() => {
 		if (!isLoading) {
 			if (summary) {
-				value = JSON.parse(summary.value)
-				updateConfig(value)
-				updateID(summary.id)
+				valueRef.current = JSON.parse(summary.value);
+				updateConfig(valueRef.current);
+				updateID(summary.id);
 			} else {
-				console.log("no data")
+				console.log("no data");
 			}
-	}
-	},[isLoading])
+		}
+	}, [isLoading]);
 	const template = `
         "nav  main" auto
         / 1fr 4.5fr;

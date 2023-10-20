@@ -1,9 +1,9 @@
+import React, { useState, useEffect, ReactElement } from 'react';
+import { useRouter } from 'next/router';
 import { Table, Panel, Tooltip, Small, Link as StyledLink, Button } from '@bigcommerce/big-design';
 import { EditIcon } from '@bigcommerce/big-design-icons';
-import { useState, useEffect, ReactElement } from 'react';
-import { useRouter } from 'next/router';
-import { TableItem } from '../types';
 import ModalInfo from "@components/modals/detailModal";
+import { TableItem } from '../types';
 
 const CollectionTable = ({ list, isLoading, activeCollection, search, credentials }) => {
     const columnDefinition = {
@@ -136,11 +136,11 @@ const CollectionTable = ({ list, isLoading, activeCollection, search, credential
 	const renderCategories = (categories: string[]) => {
 		const categoryString = categories?.join(' | ');
 		if (categories?.length == 0) {
-			return(<Small>-</Small>)
+            return (<Small>-</Small>);
 		} else if (!categoryString) {
-			return(<Small>-</Small>)
+            return (<Small>-</Small>);
 		}
-		return (<Small>{categoryString}</Small>)
+        return (<Small>{categoryString}</Small>);
 	}
 	const renderAction = (id: string): ReactElement => (
 		<Tooltip placement="bottom" trigger={<Button
@@ -168,7 +168,7 @@ const CollectionTable = ({ list, isLoading, activeCollection, search, credential
                 itemsPerPage,
             }}
             stickyHeader
-        />)
+        />);
 };
 
 export default CollectionTable;

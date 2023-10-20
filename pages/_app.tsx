@@ -2,9 +2,9 @@ import { Box, GlobalStyles } from '@bigcommerce/big-design';
 import { theme as defaultTheme } from '@bigcommerce/big-design-theme';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import Header from '../components/header';
 import SessionProvider from '../context/session';
-import ConfigProvider from 'context/config';
+import ConfigProvider from 'context/config'; 
+import Header from '../components/header';  
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
