@@ -19,7 +19,7 @@ const submitHandler = async () => {
       formData.append('url', url);
       formData.append('apiKey', apiKey);
 
-      const response = await fetch('/api/upload', {
+      await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
-import styled from "styled-components";
+import React, { useState, useEffect, useRef } from 'react';
+import { Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
 import { useChannel } from "@lib/hooks";
 import { useConfig } from "context/config";
 import { useSession } from "context/session";
@@ -21,19 +20,20 @@ const Index = () => {
         { name: "search", isActive: false, caption:'Search Options' },
     ]);
 
-    let value;
+    const valueRef = useRef(null);
 
-    useEffect(() => {
-        if (!isLoading) {
-            if (summary) {
-                value = JSON.parse(summary.value);
-                updateConfig(value);
-                updateID(summary.id);
-            } else {
-                console.log("no data");
-            }
-        }
-    }, [isLoading]);
+  useEffect(() => {
+    if (!isLoading) {
+      if (summary) {
+        const parsedValue = JSON.parse(summary.value);
+        valueRef.current = parsedValue;
+        updateConfig(parsedValue);
+        updateID(summary.id);
+      } else {
+        console.log("no data");
+      }
+    }
+  }, [isLoading]);
 
     const template = `
         "nav  main" auto

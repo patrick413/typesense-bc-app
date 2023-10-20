@@ -5,8 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Loading from "@components/loading";
 import ErrorMessage from "@components/error";
 import { useConfig } from "context/config";
-import { Box, Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
-import styled from "styled-components";
+import {  Flex, Grid, GridItem, Panel, Button, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
 import HitPerPage from "@components/tabPages/hitPerPage";
 import SearchAttributes from "@components/tabPages/searchAttributes";
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, GridItem, Panel, Form, FormGroup, Input, H2, Small, Button, Flex, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
-import styled from "styled-components";
 import { MessagingType } from '@bigcommerce/big-design/dist/utils';
 import { useCredentials } from "../lib/hooks";
 import { collectionChecker } from './api/collections';

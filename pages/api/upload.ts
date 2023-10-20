@@ -62,7 +62,6 @@ async function convertCSVtoJSONL(csvData) {
 
 
 export async function collectionAdd(collection, csvData, url, apiKey) {
-  try {
     if (!csvData) {
       console.error('No CSV data provided');
       return;
@@ -92,7 +91,4 @@ export async function collectionAdd(collection, csvData, url, apiKey) {
     }
     const responseText = await response.text();
     return responseText;
-  } catch (error) {
-    throw error;
-  }
 }
