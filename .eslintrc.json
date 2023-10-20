@@ -34,9 +34,9 @@
     "react/display-name": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "newline-before-return": "error",
+    "newline-before-return": "off",
     "sort-imports": [
-      "error",
+      "off",
       {
         "ignoreCase": true,
         "ignoreDeclarationSort": true
@@ -45,7 +45,7 @@
     "import/named": "off",
     "import/no-named-as-default-member": "off",
     "import/order": [
-      "error",
+      "off",
       {
         "alphabetize": {
           "order": "asc",
