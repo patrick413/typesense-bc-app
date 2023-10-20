@@ -78,16 +78,16 @@ export function useCollectionList(url:string, apiKey:string, activeCollection,id
     };
 }
 
-export function useCollection(activeCollection,id,method) {
-    // Use SWR to fetch data
-    const { data, error, mutate: mutateList} = useSWR([API_URL, activeCollection, id, method], collectionFetcher);
-    return {
-        list: data,
-        isLoading: !data && !error,
-        error,
-        mutateList
-    };
-}
+// export function useCollection(activeCollection,id,method) {
+//     // Use SWR to fetch data
+//     const { data, error, mutate: mutateList} = useSWR([API_URL, activeCollection, id, method], collectionFetcher);
+//     return {
+//         list: data,
+//         isLoading: !data && !error,
+//         error,
+//         mutateList
+//     };
+// }
 
 export function useProductInfo(pid: number, list?:ListItem[]) {
     const { context } = useSession();
