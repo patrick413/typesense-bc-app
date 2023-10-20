@@ -30,7 +30,7 @@ const Collections = () => {
 
     useEffect(() => {
         setFilteredItems(list)
-    }, [isLoading, activeCollection, credentials.url, credentials.apiKey])
+    }, [isLoading, activeCollection, credentials.url, credentials.apiKey, list])
 
     if (credentials.url.length == 0) {
         return (<Panel>

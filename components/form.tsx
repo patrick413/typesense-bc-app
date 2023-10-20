@@ -9,10 +9,6 @@ interface FormProps {
     isLoading: boolean;
 }
 
-const FormErrors = {
-    name: 'Product name is required',
-    price: 'Default price is required',
-};
 const categoriesOptions = [
     { value: 'Hose', content: 'Hose' },
     { value: 'PVC Hose - Water', content: 'PVC Hose - Water' },

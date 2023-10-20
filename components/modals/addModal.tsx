@@ -23,11 +23,6 @@ const submitHandler = async () => {
         method: 'POST',
         body: formData,
       });
-      if (response.ok) {
-        console.log('File uploaded successfully');
-      } else {
-        console.error('Failed to upload file');
-      }
     } catch (error) {
       console.error('Error uploading file:', error);
     }

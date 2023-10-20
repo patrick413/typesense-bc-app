@@ -33,7 +33,7 @@ const Index = () => {
 				console.log("no data");
 			}
 		}
-	}, [isLoading]);
+	}, [isLoading, summary, updateConfig, updateID]);
 	const template = `
         "nav  main" auto
         / 1fr 4.5fr;
@@ -50,7 +50,7 @@ const Index = () => {
 				value:JSON.stringify(searchConfig)
 			}
 			
-            const response = await fetch(`/api/channels/${searchId}?context=${encodedContext}`, {
+            await fetch(`/api/channels/${searchId}?context=${encodedContext}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(updatedValue),
@@ -111,9 +111,5 @@ const Index = () => {
 		</Panel>
 	);
 };
-
-const StyledBox = styled(Box)`
-	min-width: 10rem;
-`;
 
 export default Index;

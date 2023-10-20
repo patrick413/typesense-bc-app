@@ -5,7 +5,7 @@ import { WritableStreamBuffer } from 'stream-buffers';
 
 
 
-const csvtojson = require('csvtojson')
+import csvtojson from 'csvtojson';
 export const config = {
   api: {
     bodyParser: false,
@@ -30,12 +30,8 @@ export default async (req: NextApiRequest & { file: any }, res: NextApiResponse)
     if (!upliadedFile || !collectionName) {
       return res.status(400).json({ error: 'No file uploaded or collection name provided' });
     }
-    try {
-      const response = await collectionAdd(collectionName, upliadedFile, url, apiKey);
-    } catch (error) {
-      console.error('Error uploading file to Typesense:', error);
-      return res.status(500).json({ error: 'Failed to upload data to Typesense' });
-    }
+    await collectionAdd(collectionName, upliadedFile, url, apiKey);
+
     return res.status(200).json({ message: 'File uploaded successfully' });
   });
 };

@@ -10,7 +10,7 @@ import ErrorMessage from '@components/error';
 const alertsManager = createAlertsManager();
 
 const Index = () => {
-    const { error, isLoading, summary, mutateList } = useCredentials();
+    const { error, isLoading, summary } = useCredentials();
     const [formData, setFormData] = useState({
         url: '',
         apiKey: '',
@@ -27,7 +27,7 @@ const Index = () => {
                 apiKey: summary.apiKey,
             });
         }
-    }, [isLoading]);
+    }, [isLoading, summary]);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -129,9 +129,5 @@ const Index = () => {
         </Panel>
     );
 };
-
-const StyledBox = styled(Box)`
-    min-width: 10rem;
-`;
 
 export default Index;

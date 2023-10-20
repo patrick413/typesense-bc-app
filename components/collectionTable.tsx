@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactElement } from 'react';
 import { useRouter } from 'next/router';
-import { Table, Panel, Tooltip, Small, Link as StyledLink, Button } from '@bigcommerce/big-design';
+import { Table, Tooltip, Small, Link as StyledLink, Button } from '@bigcommerce/big-design';
 import { EditIcon } from '@bigcommerce/big-design-icons';
 import ModalInfo from "@components/modals/detailModal";
 import { TableItem } from '../types';
