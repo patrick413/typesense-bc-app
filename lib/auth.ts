@@ -67,7 +67,8 @@ export async function getSession({ query: { context = '' } }: NextApiRequest) {
     throw new Error('User is not available. Please login or ensure you have access permissions.');
   }
 
-  const accessToken = await db.getStoreToken(storeHash);
+    const accessToken = await db.getStoreToken(storeHash);
+    
   return { accessToken, storeHash, user };
 }
 
@@ -80,6 +81,7 @@ export function encodePayload({ user, owner, ...session }: SessionProps) {
 
 // Verifies JWT for getSession (product APIs)
 export function decodePayload(encodedContext: string) {
+    
     return jwt.verify(encodedContext, JWT_KEY);
 }
 

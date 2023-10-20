@@ -1,6 +1,6 @@
-import React from 'react';
 import { Box, Form, Grid, GridItem, H2, H3, Input, Select, Small,} from '@bigcommerce/big-design';
 import { SearchIcon } from '@bigcommerce/big-design-icons';
+import React from 'react';
 import style from '../../styles/styleOption.module.css';
 
 const StyleOption = ({ searchConfig, updateHandler }) => {

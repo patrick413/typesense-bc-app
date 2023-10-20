@@ -1,5 +1,5 @@
+import { Box, Form, H2, Input, Small } from '@bigcommerce/big-design';
 import React from 'react';
-import { Box, H2, Small, Form, Input } from '@bigcommerce/big-design';
 
 const HitPerPage = ({ searchConfig, updateHandler }) => {
   const { hitsPerPage } = searchConfig;
@@ -12,11 +12,6 @@ const HitPerPage = ({ searchConfig, updateHandler }) => {
       }));
     }
   };
-
-  const contentTemplate = `
-        "fields  prev" auto
-        / 4fr 1.5fr;
-    `;
 
   return (
     <Box marginLeft='xxxLarge'>

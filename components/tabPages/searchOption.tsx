@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Flex, FlexItem, Form, Grid, GridItem, H2, H3, Input, Select, Small, Switch, Text } from '@bigcommerce/big-design';
+import { Box, Form, Grid, GridItem, H2, H3, Input, Small, Switch,} from '@bigcommerce/big-design';
 import { SearchIcon } from '@bigcommerce/big-design-icons';
 import style from '../../styles/styleOption.module.css';
 

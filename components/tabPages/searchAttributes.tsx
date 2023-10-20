@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Box, H2, Form, FormGroup, MultiSelect, Text, Flex, FlexItem, Select } from '@bigcommerce/big-design';
+import React, { useState } from 'react';
 
 const SearchAttributes = ({ searchConfig, updateHandler }) => {
   const { searchAttributes } = searchConfig;
@@ -8,6 +8,7 @@ const SearchAttributes = ({ searchConfig, updateHandler }) => {
     Object.keys(searchAttributes).forEach(key => {
       if (searchAttributes[key].isActive) newValue.push(key);
     });
+    
     return newValue;
   });
 

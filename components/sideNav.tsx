@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box, Text } from '@bigcommerce/big-design';
+import React from 'react';
 import styles from '../styles/sideNav.module.css';
 
 const SideNav = ({ tabChange, activeTab }) => {
