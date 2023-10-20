@@ -8,7 +8,7 @@ const InnerHeader = () => {
     const router = useRouter();
     const { cid } = router.query;
 
-    const handleBackClick = () => router.push(TabRoutes[TabIds.COLLECTION]);
+    const handleBackClick = () => router.push(TabRoutes[TabIds.CONFIG]);
 
     return (
         <Box marginBottom="xxLarge">
