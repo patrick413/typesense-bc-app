@@ -7,21 +7,42 @@ interface ConfigContextData {
         displayPrice: boolean;
         filter: boolean;
         placeholder: string;
-        prodDescription:string;
+        prodDescription: string;
         position: {
-        value: string;
-        content: string;
+            value: string;
+            content: string;
         };
         view: {
             value: string;
             content: string;
         };
         hitsPerPage: number;
-        searchAttributes: [{
-            name: string;
-            isActive: boolean;
-            sort:string
-        }]
+        searchAttributes: {
+            sku: {
+                isActive: boolean,
+                sort: string
+            },
+            parentSku: {
+                isActive: boolean,
+                sort: string
+            },
+            'options.value': {
+                isActive: boolean,
+                sort: string
+            },
+            description: {
+                isActive: boolean,
+                sort: string
+            },
+            categories: {
+                isActive: boolean,
+                sort: string
+            },
+            name: {
+                isActive: boolean,
+                sort: string
+            }
+        }[];
     };
     searchId: any;
     updateConfig: (value: any) => void;
@@ -29,7 +50,52 @@ interface ConfigContextData {
 }
 const ConfigContext = createContext({} as ConfigContextData);
 const ConfigProvider = ({ children }) => {
-    const [searchConfig, setSearchConfig] = useState({})
+    const [searchConfig, setSearchConfig] = useState({
+        bgColor: '',
+        borderColor: '',
+        categories: false,
+        displayPrice: false,
+        filter: false,
+        placeholder: '',
+        prodDescription: '',
+        position: {
+            value: '',
+            content: '',
+        },
+        view: {
+            value: '',
+            content: '',
+        },
+        hitsPerPage: 0,
+        searchAttributes: [
+            {
+            sku: {
+                isActive: false,
+                sort: '',
+            },
+            parentSku: {
+                isActive: false,
+                sort: '',
+            },
+            'options.value': {
+                isActive: false,
+                sort: '',
+            },
+            description: {
+                isActive: false,
+                sort: '',
+            },
+            categories: {
+                isActive: false,
+                sort: '',
+            },
+            name: {
+                isActive: false,
+                sort: '',
+            },
+            },
+        ],
+    });
     const [searchId, setSearchId] = useState('')
     const updateConfig = (value:any) => {
         setSearchConfig(value);
