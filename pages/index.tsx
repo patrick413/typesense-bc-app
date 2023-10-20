@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Grid, GridItem, Panel, Form, FormGroup, Input, H2, Small, Button, Flex, FlexItem, createAlertsManager, AlertProps, AlertsManager,  MessagingType } from "@bigcommerce/big-design";
+import { Box, Grid, GridItem, Panel, Form, FormGroup, Input, H2, Small, Button, Flex, FlexItem, createAlertsManager, AlertProps, AlertsManager } from "@bigcommerce/big-design";
 import styled from "styled-components";
 import { useCredentials } from "../lib/hooks";
 import { collectionChecker } from './api/collections';
 import Loading from '@components/loading';
 import ErrorMessage from '@components/error';
+import { MessagingType } from '@bigcommerce/big-design/dist/utils';
 
 
 const alertsManager = createAlertsManager()
